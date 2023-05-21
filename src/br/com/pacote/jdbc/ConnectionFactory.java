@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author 876
+ * @author 876.
  */
 public class ConnectionFactory {
     

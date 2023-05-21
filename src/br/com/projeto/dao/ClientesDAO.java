@@ -52,7 +52,7 @@ public class ClientesDAO {
             stmt.setString(13, obj.getUf());
             
             
-            //3 passo - executar o comando sql 
+            //3 passo - executar o comando sql. 
             stmt.execute();
             stmt.close();
             // acerto 

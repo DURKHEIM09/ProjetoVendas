@@ -6,7 +6,7 @@ package br.com.projeto.model;
 
 /**
  *
- * @author 876
+ * @author 876.
  */
 public class Clientes {
     
