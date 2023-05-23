@@ -32,7 +32,7 @@ public class ClientesDAO {
         
         try {
             // primeiro passo: criar o comando mysql
-            String sql = "insert into tb_cliente (nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado) "
+            String sql = "insert into tb_clientes (nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado) "
                     + "value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             
             // 2 passo : conectar o banco e organizar 

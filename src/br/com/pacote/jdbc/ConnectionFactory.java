@@ -5,6 +5,7 @@
 package br.com.pacote.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,10 +17,10 @@ public class ConnectionFactory {
         
         try {
             
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1/bdvendas","teste","123");
+            return DriverManager.getConnection("jdbc:mysql://127.0.0.1/bdvendas?useSSL=false","teste","123");
                     
             
-        } catch (Exception erro) {
+        } catch (SQLException erro) {
             throw new RuntimeException(erro);
         }
         

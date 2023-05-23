@@ -4,6 +4,7 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.model.Clientes;
 
 /**
@@ -381,7 +382,7 @@ public class FrmCliente extends javax.swing.JFrame {
 
         txtUF.setBackground(new java.awt.Color(255, 255, 255));
         txtUF.setForeground(new java.awt.Color(0, 0, 0));
-        txtUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SP", "RJ", "MG" }));
 
         txtRG.setBackground(new java.awt.Color(255, 255, 255));
         try {
@@ -667,17 +668,25 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // salvar
-        try {
+       
             Clientes obj = new Clientes();
             
             obj.setNome(txtNome.getText());
             obj.setRg(txtRG.getText());
             obj.setCpf(txtCPF.getText());
-            obj.setCpf(txtCPF.getText());
-            
-            
-        } catch (Exception e) {
-        }
+            obj.setEmail(txtEmail.getText());
+            obj.setTelefone(txtTelefone.getText());
+            obj.setCelular(txtCelular.getText());
+            obj.setCep(txtCep.getText());
+            obj.setEndereco(txtEndereço.getText());
+            obj.setNumero(Integer.parseInt(txtN.getText()));
+            obj.setComplemento(TxtComplemento.getText());
+            obj.setBairro(txtBairro.getText());
+            obj.setCidade(txtCidade.getText());
+            obj.setUf(txtUF.getSelectedItem().toString());       
+        
+            ClientesDAO dao = new ClientesDAO();
+            dao.cadastrarCliente(obj);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
