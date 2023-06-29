@@ -17,7 +17,7 @@ public class ConnectionFactory {
         
         try {
             
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1/bdvendas?useSSL=false","teste","123");
+            return DriverManager.getConnection("jdbc:mysql://127.0.0.1/bdvendas","teste","123");
                     
             
         } catch (SQLException erro) {
