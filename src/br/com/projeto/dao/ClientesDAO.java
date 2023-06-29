@@ -4,12 +4,16 @@
  */
 package br.com.projeto.dao;
 
+import javax.swing.JOptionPane;
+import com.mysql.jdbc.ResultSetImpl;
 import br.com.pacote.jdbc.ConnectionFactory;
 import br.com.projeto.model.Clientes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -74,9 +78,51 @@ public class ClientesDAO {
     }
     
     
-    
-    
-    
-    
-    
+    //metodo listar todos os clientes 
+    public ArrayList<Object>listaCliente(){
+        
+        try {
+            //1 criar a lista.
+            ArrayList<Object> lista = new ArrayList<Object>();
+            
+            //2 passo - criar comando sql 
+            String sql = "select * from tb_clientes";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Clientes obj = new Clientes();
+                
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("Nome"));
+                obj.setRg(rs.getString("Rg"));
+                obj.setCpf(rs.getString("Cpf"));
+                obj.setEmail(rs.getString("Email"));
+                obj.setTelefone(rs.getString("Telefone"));
+                obj.setCelular(rs.getString("Celular"));
+                obj.setCep(rs.getString("Cep"));
+                obj.setEndereco(rs.getString("Endereco"));
+                obj.setNumero(rs.getInt("Numero"));
+                obj.setComplemento(rs.getString("Complemento"));
+                obj.setBairro(rs.getString("Bairro"));
+                obj.setCidade(rs.getString("Cidade"));
+                obj.setUf(rs.getString("Uf"));
+                
+                lista.add(obj);
+                
+                
+            }
+            
+            return lista;
+            
+            
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            return null;
+            
+        }
+    }
 }
+        
